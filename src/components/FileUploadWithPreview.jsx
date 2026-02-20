@@ -89,6 +89,7 @@ export default function FileUploadWithPreview({
           accept={acceptTypes}
           multiple
           onChange={(e) => handleFiles(e.target.files)}
+          className="hidden"
         />
         <div className="flex flex-col items-center text-center">
           <Upload className={`text-slate-400 ${compact ? 'w-5 h-5 mb-1' : 'w-8 h-8 mb-2'}`} />
@@ -135,11 +136,11 @@ export default function FileUploadWithPreview({
               <button
                 type="button"
                 onClick={(e) => { e.stopPropagation(); removeFile(index); }}
-                className="absolute top-1 right-1 bg-red-500 text-white rounded-full p-0.5
-                  opacity-0 group-hover:opacity-100 transition-opacity duration-200
-                  hover:bg-red-600"
+                className="absolute top-1 right-1 bg-red-500/80 text-white rounded-full p-1
+                  hover:bg-red-600 active:bg-red-700 transition-colors duration-200 shadow-sm"
+                aria-label={`Remove ${file.name || 'file'}`}
               >
-                <X className="w-3 h-3" />
+                <X className="w-3.5 h-3.5" />
               </button>
               <div className="px-1.5 py-1 bg-white">
                 <p className="text-[10px] text-slate-500 truncate">{file.name}</p>

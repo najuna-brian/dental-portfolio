@@ -58,6 +58,7 @@ export default function PersonalInfo({ data, updateField }) {
             type="file"
             accept="image/*"
             onChange={handlePhotoUpload}
+            className="hidden"
           />
           {data.personal.profilePhoto && (
             <button
